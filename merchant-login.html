@@ -59,13 +59,42 @@
                         <label>
                             Password
                             <div class="password-field">
-                                <input id="password" name="password" type="password" placeholder="Enter your password" required>
+                                <input id="password" name="password" type="password" placeholder="Example: Tribes@123!" required>
                                 <button type="button" class="password-toggle" aria-label="Show password" data-target="password">👁</button>
                             </div>
                         </label>
                     </div>
 
                     <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+
+                <button type="button" class="reset-link" id="show-reset">Forgot password?</button>
+
+                <form id="password-reset-form" class="password-reset-form" hidden novalidate>
+                    <div class="merchant-header reset-header">
+                        <p class="store-kicker">Account recovery</p>
+                        <h2>Reset password</h2>
+                    </div>
+                    <label>
+                        Merchant ID
+                        <input id="resetMerchantId" type="text" placeholder="Enter your merchant ID" required>
+                    </label>
+                    <label>
+                        Registered Email
+                        <input id="resetEmail" type="email" placeholder="Enter your registered email" required>
+                    </label>
+                    <label>
+                        New Password
+                        <input id="resetPassword" type="password" minlength="8" pattern="(?=.*[^A-Za-z0-9]).{8,}" placeholder="Example: Tribes@123!" required>
+                    </label>
+                    <label>
+                        Confirm New Password
+                        <input id="resetConfirmPassword" type="password" minlength="8" pattern="(?=.*[^A-Za-z0-9]).{8,}" placeholder="Repeat: Tribes@123!" required>
+                    </label>
+                    <div class="reset-actions">
+                        <button type="submit" class="submit-btn">Reset password</button>
+                        <button type="button" class="secondary-btn" id="cancel-reset">Cancel</button>
+                    </div>
                 </form>
 
                 <div id="status" class="status-message" aria-live="polite"></div>

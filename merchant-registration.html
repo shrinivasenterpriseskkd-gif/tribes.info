@@ -35,7 +35,14 @@
 
                     <label>
                         Phone No
-                        <input id="phoneNo" name="phoneNo" type="tel" placeholder="Enter phone number" required>
+                        <input id="phoneNo" name="phoneNo" type="tel" placeholder="Enter 10-digit phone number" inputmode="numeric" minlength="10" maxlength="10" pattern="[0-9]{10}" required>
+                    </label>
+                </div>
+
+                <div class="field-row single">
+                    <label>
+                        Email Address
+                        <input id="email" name="email" type="email" placeholder="Enter email address" autocomplete="email" required>
                     </label>
                 </div>
 
@@ -112,35 +119,6 @@
 
                 <div class="field-row">
                     <label>
-                        Merchant ID
-                        <input id="merchantId" name="merchantId" type="text" readonly placeholder="Will be generated automatically">
-                    </label>
-
-                    <label>
-                        Create Password
-                        <div class="password-field">
-                            <input id="password" name="password" type="password" placeholder="Create a secure password" minlength="8" required>
-                            <button type="button" class="password-toggle" aria-label="Show password" data-target="password">👁</button>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="field-row single">
-                    <label>
-                        Confirm Password
-                        <div class="password-field">
-                            <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter your password" minlength="8" required>
-                            <button type="button" class="password-toggle" aria-label="Show password" data-target="confirmPassword">👁</button>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="field-row single">
-                    <button type="button" class="secondary-btn" id="generate-credentials">Generate merchant ID & password</button>
-                </div>
-
-                <div class="field-row">
-                    <label>
                         Aadhar Number
                         <input id="aadharNumber" name="aadharNumber" type="text"
                             placeholder="Enter 12-digit Aadhar Number" required>
@@ -158,6 +136,12 @@
                         <span>Aadhar Photo Upload</span>
                         <input id="aadharPhoto" name="aadharPhoto" type="file" accept="image/*" required>
                         <img id="aadharPreview" alt="Aadhar preview" hidden>
+                    </label>
+
+                    <label class="upload-box" for="shopPhoto">
+                        <span>Merchant Shop Photo Upload</span>
+                        <input id="shopPhoto" name="shopPhoto" type="file" accept="image/*" required>
+                        <img id="shopPreview" alt="Shop preview" hidden>
                     </label>
                 </div>
 
@@ -178,6 +162,11 @@
                 <label class="terms-checkbox">
                     <input id="agreeTerms" type="checkbox" required>
                     <span>I agree to the TRIBES terms and conditions.</span>
+                </label>
+
+                <label class="terms-checkbox donation-option">
+                    <input id="donation" type="checkbox" checked>
+                    <span>Add a voluntary ₹1 donation to support the TRIBES community.</span>
                 </label>
 
                 <button type="submit" class="submit-btn">Complete Registration</button>
@@ -214,7 +203,9 @@
         </div>
     </footer>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+    <script src="js/api-config.js"></script>
     <script type="module" src="js/viewers.js"></script>
     <script src="js/merchant-registration.js"></script>
 </body>
