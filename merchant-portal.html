@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIBES | Merchant Catalog</title>
+    <meta name="description" content="Manage your TRIBES merchant product photos, prices, and discounts.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="merchant-page merchant-portal-page">
+    <header class="store-header">
+        <a class="store-brand" href="index.html"><img src="TribesLogo.jpg" alt="TRIBES logo"><span>TRIBES</span></a>
+        <nav aria-label="Merchant navigation">
+            <a href="index.html">Shop</a>
+            <button class="merchant-portal-signout" id="merchant-sign-out" type="button">Sign out</button>
+        </nav>
+    </header>
+
+    <main class="merchant-portal-wrap">
+        <header class="merchant-portal-heading">
+            <div>
+                <p class="store-kicker">Merchant workspace</p>
+                <h1>Welcome, <span id="merchant-welcome-name">Merchant</span></h1>
+                <p>View your product photos and set prices and discounts for new listings.</p>
+            </div>
+            <aside class="merchant-profile-card" aria-label="Merchant shop profile">
+                <div class="merchant-profile-photo">
+                    <img id="merchant-shop-photo" alt="Merchant shop" hidden>
+                    <p id="merchant-shop-photo-empty">Shop photo not added yet.</p>
+                    <div class="merchant-profile-details">
+                        <h2 id="merchant-proprietor-name">Merchant</h2>
+                        <p><span>Phone:</span> <span id="merchant-phone">Not provided</span></p>
+                        <p><span>GSTIN:</span> <span id="merchant-gstin">Not provided</span></p>
+                    </div>
+                </div>
+                <details class="merchant-gstin-editor">
+                    <summary>Edit GSTIN</summary>
+                    <form id="merchant-gstin-form" class="merchant-gstin-form">
+                        <label for="merchant-gstin-input">GSTIN</label>
+                        <input id="merchant-gstin-input" type="text" maxlength="15"
+                            placeholder="Not provided" autocomplete="off"
+                            pattern="[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z][A-Za-z0-9][Zz][A-Za-z0-9]"
+                            aria-describedby="merchant-gstin-hint">
+                        <small id="merchant-gstin-hint">Leave blank if you do not have a GSTIN.</small>
+                        <button class="secondary-btn" id="merchant-gstin-save" type="submit">Save GSTIN</button>
+                    </form>
+                </details>
+                <p id="merchant-gstin-status" class="merchant-shop-photo-status" role="status" aria-live="polite"></p>
+                <form id="merchant-shop-photo-form" class="merchant-shop-photo-form">
+                    <label for="merchant-shop-photo-input">Shop photo</label>
+                    <input id="merchant-shop-photo-input" type="file" accept="image/jpeg,image/png,image/webp">
+                    <small>JPG, PNG, or WebP; up to 5 MB.</small>
+                    <button class="secondary-btn" id="merchant-shop-photo-save" type="submit">Save shop photo</button>
+                </form>
+                <p id="merchant-shop-photo-status" class="merchant-shop-photo-status" role="status" aria-live="polite"></p>
+            </aside>
+            <span class="merchant-portal-badge">My catalog</span>
+        </header>
+
+        <section class="merchant-portal-section" aria-labelledby="merchant-products-heading">
+            <div class="merchant-portal-section-heading">
+                <div>
+                    <p class="store-kicker">Your products</p>
+                    <h2 id="merchant-products-heading">Your product photos and prices</h2>
+                </div>
+                <button class="secondary-btn" id="refresh-merchant-products" type="button">Refresh catalog</button>
+            </div>
+            <p id="merchant-catalog-status" class="merchant-portal-status" role="status" aria-live="polite"></p>
+            <div id="merchant-product-list" class="merchant-product-list">
+                <p class="merchant-product-empty">Loading your catalog…</p>
+            </div>
+        </section>
+
+        <section class="merchant-portal-section" aria-labelledby="merchant-add-product-heading">
+            <div class="merchant-portal-section-heading">
+                <div>
+                    <p class="store-kicker">Add to your catalog</p>
+                    <h2 id="merchant-add-product-heading">Add a product</h2>
+                </div>
+            </div>
+            <form id="merchant-product-form" class="merchant-product-form">
+                <label class="merchant-product-image-field">
+                    Product photo
+                    <input id="merchant-product-image" type="file" accept="image/jpeg,image/png,image/webp" required>
+                    <img id="merchant-product-preview" alt="Selected product photo preview" hidden>
+                    <small>Choose a JPG, PNG, or WebP image up to 5 MB.</small>
+                </label>
+                <div class="merchant-product-fields">
+                    <label>Product name
+                        <input id="merchant-product-name" type="text" maxlength="120" placeholder="e.g. Handwoven basket" required>
+                    </label>
+                    <label>Unit
+                        <select id="merchant-product-unit" required>
+                            <option value="">Choose unit</option>
+                            <option value="piece">Piece</option>
+                            <option value="kg">Kilogram (kg)</option>
+                            <option value="g">Gram (g)</option>
+                            <option value="litre">Litre</option>
+                            <option value="ml">Millilitre (ml)</option>
+                            <option value="box">Box</option>
+                            <option value="pack">Pack</option>
+                            <option value="dozen">Dozen</option>
+                            <option value="meter">Meter</option>
+                        </select>
+                    </label>
+                    <label>Price (₹)
+                        <input id="merchant-product-price" type="number" min="0" step="0.01" placeholder="0.00" required>
+                    </label>
+                    <label>Discount (%)
+                        <input id="merchant-product-discount" type="number" min="0" max="100" step="1" value="0" required>
+                        <small>Enter a whole percentage from 0 to 100.</small>
+                    </label>
+                    <label>GST (%)
+                        <input id="merchant-product-gst" type="number" min="0" max="100" step="0.01" value="0" required>
+                        <small>Enter the GST rate for this product. This is shown on the listing and does not change the price.</small>
+                    </label>
+                    <label>Available stock
+                        <input id="merchant-product-stock" type="number" min="0" step="1" value="0" required>
+                    </label>
+                    <label>Area
+                        <input id="merchant-product-area" type="text" maxlength="100" placeholder="e.g. Araku Valley" required>
+                    </label>
+                    <label>Village / town
+                        <input id="merchant-product-village" type="text" maxlength="100" placeholder="Enter village or town" required>
+                    </label>
+                </div>
+                <button class="submit-btn" id="merchant-product-submit" type="submit">Upload product</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="store-footer">
+        <div class="footer-brand">
+            <img src="TribesLogo.jpg" alt="TRIBES logo">
+            <div><span>TRIBES</span><small>Merchant workspace</small></div>
+        </div>
+        <div class="footer-meta">
+            <a href="mailto:comtribes@gmail.com">Contact merchant support</a>
+        </div>
+    </footer>
+
+    <script type="module" src="js/merchant-portal.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

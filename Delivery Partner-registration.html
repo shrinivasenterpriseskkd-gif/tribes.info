@@ -4,32 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRIBES | Merchant Registration</title>
-    <meta name="description" content="Register as a merchant with TRIBES and download your registration PDF agreement.">
+    <title>TRIBES | Delivery Partner Registration</title>
+    <meta name="description"
+        content="Register as a Delivery Partner with TRIBES and download your registration PDF agreement.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="merchant-page">
+<body class="delivery-partner-page">
     <header class="store-header">
         <a class="store-brand" href="index.html"><img src="TribesLogo.jpg" alt="TRIBES logo"><span>TRIBES</span></a>
         <nav aria-label="Main navigation">
             <a href="index.html">Shop</a>
             <a href="cart.html">Cart</a>
-            <a class="active" href="merchant-registration.html">Merchant Registration</a>
+            <a class="active" href="Delivery Partner-login.html">Delivery Partner Registration</a>
         </nav>
     </header>
 
-    <main class="merchant-wrap">
-        <section class="merchant-card">
-            <div class="merchant-header">
+    <main class="delivery-partner-wrap">
+        <section class="delivery-partner-card">
+            <div class="delivery-partner-header">
                 <p class="store-kicker">TRIBES partnership</p>
-                <h1>Merchant Registration</h1>
+                <h1>Delivery Partner Registration</h1>
             </div>
 
-            <form id="merchant-form" novalidate>
+            <form id="delivery-partner-form" novalidate>
                 <div class="field-row">
                     <label>
-                        Full Name of the Merchant
+                        Full Name of the Delivery Partner
                         <input id="fullName" name="fullName" type="text" placeholder="Enter full name" required>
                     </label>
 
@@ -45,16 +46,6 @@
                         Email Address
                         <input id="email" name="email" type="email" placeholder="Enter email address"
                             autocomplete="email" required>
-                    </label>
-                </div>
-
-                <div class="field-row single">
-                    <label>
-                        GST Number (GSTIN, if registered)
-                        <input id="gstNumber" name="gstNumber" type="text" maxlength="15"
-                            placeholder="e.g. 37ABCDE1234F1Z5" pattern="[0-9]{2}[A-Za-z]{5}[0-9]{4}[A-Za-z][A-Za-z0-9][Zz][A-Za-z0-9]"
-                            autocomplete="off" aria-describedby="gst-number-hint">
-                        <small id="gst-number-hint">Optional. Enter the 15-character GSTIN issued to your business.</small>
                     </label>
                 </div>
 
@@ -139,76 +130,104 @@
                     </label>
                 </div>
 
+                <div class="terms-box relative-details">
+                    <h3>Relative Details</h3>
+
+                    <div class="field-row">
+                        <label>
+                            Relative Name
+                            <input id="relativeName" name="relativeName" type="text"
+                                placeholder="Enter relative's full name" required>
+                        </label>
+
+                        <label>
+                            Relative Phone Number
+                            <input id="relativePhone" name="relativePhone" type="tel"
+                                placeholder="Enter 10-digit phone number" inputmode="numeric" minlength="10"
+                                maxlength="10" pattern="[0-9]{10}" required>
+                        </label>
+                    </div>
+
+                    <div class="field-row single">
+                        <label>
+                            Relative Address
+                            <textarea id="relativeAddress" name="relativeAddress" rows="4"
+                                placeholder="Enter relative's full address" required></textarea>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="documents-section">
+                    <h3>Delivery Partner Registration Documents</h3>
+
                 <div class="upload-grid">
-                    <label class="upload-box" for="merchantPhoto">
-                        <span>Merchant Photo Upload</span>
-                        <input id="merchantPhoto" name="merchantPhoto" type="file" accept="image/*" required>
-                        <img id="merchantPreview" alt="Merchant preview" hidden>
+                    <label class="upload-box" for="aadharPhotoFront">
+                        <span>Aadhar Photo Front Upload</span>
+                        <input id="aadharPhotoFront" name="aadharPhotoFront" type="file" accept="image/jpeg,image/png" required>
+                        <img id="aadharPreviewFront" alt="Aadhar front preview" hidden>
                     </label>
 
-                    <label class="upload-box" for="aadharPhoto">
-                        <span>Aadhar Photo Upload</span>
-                        <input id="aadharPhoto" name="aadharPhoto" type="file" accept="image/*" required>
-                        <img id="aadharPreview" alt="Aadhar preview" hidden>
+                    <label class="upload-box" for="aadharPhotoBack">
+                        <span>Aadhar Photo Back Upload</span>
+                        <input id="aadharPhotoBack" name="aadharPhotoBack" type="file" accept="image/jpeg,image/png" required>
+                        <img id="aadharPreviewBack" alt="Aadhar back preview" hidden>
                     </label>
 
-                    <label class="upload-box" for="shopPhoto">
-                        <span>Merchant Shop Photo Upload</span>
-                        <input id="shopPhoto" name="shopPhoto" type="file" accept="image/*" required>
-                        <img id="shopPreview" alt="Shop preview" hidden>
+                    <label class="upload-box" for="cvUpload">
+                        <span>CV Upload</span>
+                        <input id="cvUpload" name="cvUpload" type="file"
+                            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                            required>
                     </label>
+
+                    <label class="upload-box" for="passportPhoto">
+                        <span>Passport Size Photo Upload</span>
+                        <input id="passportPhoto" name="passportPhoto" type="file" accept="image/jpeg,image/png" required>
+                        <img id="passportPhotoPreview" alt="Passport size photo preview" hidden>
+                    </label>
+                </div>
                 </div>
 
                 <div class="terms-box">
-                    <h3>TRIBES Terms & Conditions</h3>
+                    <h3>Delivery Partner Agreement Terms & Conditions</h3>
                     <ul>
-                        <li>The merchant agrees to provide accurate identity and address information.</li>
-                        <li>TRIBES may verify submitted identity documents as required for onboarding.</li>
-                        <li>All submitted products, pricing, and catalog details must comply with applicable rules and
-                            community standards.</li>
-                        <li>TRIBES reserves the right to approve, reject, or pause merchant onboarding at its
-                            discretion.</li>
-                        <li>By submitting this form, the merchant agrees to comply with all TRIBES policies and
-                            procedures.</li>
+                        <li>The Delivery Partner agrees to provide accurate identity, contact, and address
+                            information.</li>
+                        <li>The Delivery Partner must collect delivery items only from the pickup location shown in the
+                            assigned delivery details.</li>
+                        <li>The Delivery Partner must handle every delivery item carefully and keep it secure, clean,
+                            and protected from damage during transport.</li>
+                        <li>The Delivery Partner must deliver each item to the correct customer and obtain confirmation
+                            of handoff when required.</li>
+                        <li>The Delivery Partner must promptly report damaged, missing, delayed, or undeliverable items
+                            to TRIBES.</li>
+                        <li>The Delivery Partner must not open, use, exchange, sell, or tamper with any delivery item
+                            entrusted to them.</li>
+                        <li>TRIBES may verify submitted documents and may approve, reject, suspend, or end the delivery
+                            partnership if these terms are not followed.</li>
+                        <li>By submitting this form, the Delivery Partner agrees to follow these delivery-item
+                            responsibilities and all applicable TRIBES policies.</li>
                     </ul>
                 </div>
 
                 <label class="terms-checkbox">
                     <input id="agreeTerms" type="checkbox" required>
-                    <span>I agree to the TRIBES terms and conditions.</span>
+                    <span>I agree to the Delivery Partner Agreement terms and conditions.</span>
                 </label>
 
                 <label class="terms-checkbox donation-option">
-                    <input id="donation" type="checkbox" checked>
-                    <span>Add a voluntary ₹1 donation to support the TRIBES community.</span>
+                    <input id="donation" type="checkbox" checked required>
+                    <span>Add a ₹1 donation to support the TRIBES community.</span>
                 </label>
 
                 <button type="submit" class="submit-btn">Complete Registration</button>
             </form>
 
-            <p class="merchant-helper-text">
-                Already have a merchant account? <a href="merchant-login.html">Sign In</a>
+            <p class="delivery-partner-helper-text">
+                Already have a Delivery Partner account? <a href="Delivery Partner-login.html">Sign In</a>
             </p>
 
             <div id="status" class="status-message" aria-live="polite"></div>
-            <section id="merchant-registration-credentials" class="merchant-registration-credentials" hidden
-                aria-labelledby="merchant-credentials-title">
-                <h2 id="merchant-credentials-title">Your merchant login details</h2>
-                <p>Registration is complete. Save these details securely; your password is shown here only for this
-                    registration.</p>
-                <dl>
-                    <div>
-                        <dt>Merchant ID</dt>
-                        <dd><code id="registration-merchant-id"></code></dd>
-                    </div>
-                    <div>
-                        <dt>Password</dt>
-                        <dd><code id="registration-merchant-password"></code></dd>
-                    </div>
-                </dl>
-                <p class="merchant-credentials-note">Your Merchant ID and password are also saved in the Admin
-                    dashboard.</p>
-            </section>
         </section>
     </main>
 
@@ -239,7 +258,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
     <script src="js/api-config.js"></script>
     <script type="module" src="js/viewers.js"></script>
-    <script src="js/merchant-registration.js"></script>
+    <script src="js/delivery-partner-registration.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
 

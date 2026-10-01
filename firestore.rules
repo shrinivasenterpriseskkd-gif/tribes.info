@@ -8,7 +8,11 @@ service cloud.firestore {
         && request.resource.data.name.size() > 0
         && request.resource.data.price is number
         && request.resource.data.avlbStk is number
-        && request.resource.data.imageUrl is string;
+        && request.resource.data.imageUrl is string
+        && (!('gstPercent' in request.resource.data)
+          || (request.resource.data.gstPercent is number
+            && request.resource.data.gstPercent >= 0
+            && request.resource.data.gstPercent <= 100));
       allow update, delete: if false;
     }
   }

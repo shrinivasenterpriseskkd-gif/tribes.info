@@ -15,7 +15,7 @@
         <div class="header-actions">
             <nav aria-label="Store navigation"><a href="index.html">Shop</a><a class="active" href="cart.html">Cart</a>
             </nav>
-            <a class="header-signin" href="merchant-login.html">Sign In</a>
+            <a class="header-signin" href="customer-login.html">Customer Sign In</a>
         </div>
     </header>
     <main class="cart-main"><a class="back-link" href="index.html">← Continue shopping</a>
@@ -27,6 +27,28 @@
         </div>
         <div id="cart" class="cart-list"></div>
         <section class="checkout-panel">
+            <label class="delivery-state-field" for="delivery-state">Delivery state
+                <select id="delivery-state" required>
+                    <option value="">Choose delivery state</option>
+                    <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option>
+                    <option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option>
+                    <option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option>
+                    <option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option>
+                    <option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option>
+                    <option>Mizoram</option><option>Nagaland</option><option>Odisha</option>
+                    <option>Punjab</option><option>Rajasthan</option><option>Sikkim</option>
+                    <option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option>
+                    <option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option>
+                    <option>Andaman and Nicobar Islands</option><option>Chandigarh</option>
+                    <option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option>
+                    <option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option>
+                    <option>Puducherry</option>
+                </select>
+            </label>
+            <div class="delivery-location-field">
+                <button type="button" id="share-customer-location" class="delivery-location-button">Share my delivery location</button>
+                <p id="customer-location-status" role="status" aria-live="polite">Share your delivery pin for this order. Live updates stay in this browser and appear in its open Customer, Delivery Partner, and Admin tabs.</p>
+            </div>
             <div><span>Total</span><strong id="cart-total">₹0</strong></div><button id="pay" class="hero-button">Pay
                 securely with Razorpay <span>→</span></button>
             <p id="status" role="status"></p>
@@ -58,6 +80,7 @@
     <script src="js/api-config.js"></script>
     <script type="module" src="js/cart.js"></script>
     <script type="module" src="js/viewers.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 
 </html>
