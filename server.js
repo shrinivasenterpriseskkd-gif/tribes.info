@@ -136,4 +136,4 @@ app.post("/api/payments/verify", (request, response) => {
   response.json({ verified: true });
 });
 
-app.listen(port, () => console.log(`TRIBES running at http://localhost:${port}`));
+app.listen(port, () => console.log(`Janjeevan.store running at http://localhost:${port}`));

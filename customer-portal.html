@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRIBES | Customer Account</title>
-    <meta name="description" content="Manage your TRIBES customer profile and see your orders.">
+    <title>Janjeevan.store | Customer Account</title>
+    <meta name="description" content="Manage your Janjeevan.store customer profile and see your orders.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="customer-portal-page">
+<body class="store-page customer-portal-page">
     <header class="store-header">
-        <a class="store-brand" href="index.html"><img src="TribesLogo.jpg" alt="TRIBES logo"><span>TRIBES</span></a>
+        <a class="store-brand" href="index.html"><img src="TribesLogo.jpg" alt="Janjeevan.store logo"><span>Janjeevan.store</span></a>
         <nav aria-label="Customer navigation">
             <a href="index.html">Shop</a>
             <a href="cart.html">Cart</a>
@@ -24,17 +24,32 @@
             <p class="store-kicker">Your account</p>
             <h1>Hello, <span id="portal-customer-name"></span></h1>
             <dl>
-                <div><dt>Date of Birth</dt><dd id="portal-customer-dob"></dd></div>
-                <div><dt>Mobile Number</dt><dd id="portal-customer-mobile"></dd></div>
-                <div><dt>Email Address</dt><dd id="portal-customer-email"></dd></div>
-                <div><dt>State / Area</dt><dd id="portal-customer-state"></dd></div>
+                <div>
+                    <dt>Date of Birth</dt>
+                    <dd id="portal-customer-dob"></dd>
+                </div>
+                <div>
+                    <dt>Mobile Number</dt>
+                    <dd id="portal-customer-mobile"></dd>
+                </div>
+                <div>
+                    <dt>Email Address</dt>
+                    <dd id="portal-customer-email"></dd>
+                </div>
+                <div>
+                    <dt>State / Area</dt>
+                    <dd id="portal-customer-state"></dd>
+                </div>
             </dl>
             <a class="customer-shop-link" href="index.html">Continue shopping <span>→</span></a>
         </section>
 
         <section class="customer-orders-section">
             <div class="customer-orders-heading">
-                <div><p class="store-kicker">Your purchases</p><h2>Order History</h2></div>
+                <div>
+                    <p class="store-kicker">Your purchases</p>
+                    <h2>Order History</h2>
+                </div>
             </div>
             <p id="customer-orders-status" class="status-message" role="status" aria-live="polite"></p>
             <div id="customer-orders-list" class="customer-orders-list"></div>
