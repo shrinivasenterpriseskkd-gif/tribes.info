@@ -3739,6 +3739,44 @@ button {
     color: #fff
 }
 
+.store-page .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.store-page .header-actions nav {
+    align-items: center;
+}
+
+.store-page .header-signin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 8px;
+    background: var(--store-accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .18s ease, transform .18s ease;
+}
+
+.store-page .header-signin:hover {
+    background: #d85c32;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.store-page .header-signin:focus-visible {
+    outline: 3px solid #f5a07f;
+    outline-offset: 3px;
+}
+
 .store-main {
     max-width: 1180px;
     margin: 0 auto;
@@ -3779,6 +3817,24 @@ button {
     .footer-brand img {
         width: 40px;
         height: 40px
+    }
+
+    .store-page .header-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .store-page .header-actions nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .store-page .header-signin {
+        min-height: 36px;
+        padding: 8px 11px;
+        font-size: 12px;
     }
 }
 
